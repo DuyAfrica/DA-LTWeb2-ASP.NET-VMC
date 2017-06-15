@@ -16,3 +16,7 @@ C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\bin\System.Web.Mvc.xml
 C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\obj\Debug\DCP.csprojResolveAssemblyReference.cache
 C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\obj\Debug\DCP.dll
 C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\obj\Debug\DCP.pdb
+C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\bin\EntityFramework.dll
+C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\bin\EntityFramework.SqlServer.dll
+C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\bin\EntityFramework.xml
+C:\Users\CHAU\Desktop\DA-LTWeb2-ASP.NET-VMC\DACK\DCP\bin\EntityFramework.SqlServer.xml

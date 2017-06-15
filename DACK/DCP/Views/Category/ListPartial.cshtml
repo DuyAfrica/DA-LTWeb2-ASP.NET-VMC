@@ -1,0 +1,9 @@
+﻿@using DCP.Models
+
+@model List<Category>
+
+
+@foreach (var c in Model)
+{
+    <li><a href="#">@c.CatName</a></li>
+}
