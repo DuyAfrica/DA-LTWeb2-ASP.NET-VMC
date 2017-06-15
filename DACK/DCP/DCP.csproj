@@ -106,6 +106,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imgs\favicon.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
@@ -176,6 +177,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -213,6 +215,10 @@
     <Content Include="Views\Category\ListPartial.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Add.cshtml" />
+    <Content Include="Views\Admin\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

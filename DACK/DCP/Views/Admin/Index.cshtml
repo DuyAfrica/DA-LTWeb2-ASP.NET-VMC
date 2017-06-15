@@ -1,0 +1,46 @@
+﻿@model List<DCP.Models.Category>
+
+@section titleContent {
+    <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+    &nbsp;
+    &raquo;
+    &nbsp;
+    Quản trị viên
+}
+
+@section css {
+    <style>
+        td {
+            padding: 3px;
+        }
+    </style>   
+}
+
+
+
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Tên Danh Mục</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.CatID</td>
+                <td>@c.CatName</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Admin", new { id = c.CatID } )">Xoá</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Update", "Admin", new { id = c.CatID } )">Sửa</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <a href="@Url.Action("Add", "Admin")">
+        Thêm mới
+    </a>

@@ -1,0 +1,18 @@
+﻿
+@section titleContent {
+    Xác nhận xóa
+}
+
+
+<div>
+    Bạn có muốn xoá danh mục có mã << @ViewBag.ID >> không?
+</div>
+<form method="post" action="">
+    <input type="hidden" value="@ViewBag.ID" name="idToDelete">
+    <button type="submit">
+        Đồng ý xoá
+    </button>
+</form>
+<div>
+    <a href="@Url.Action("Index", "Admin")">Quay lại danh mục</a>
+</div>

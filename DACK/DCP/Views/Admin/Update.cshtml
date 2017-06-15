@@ -1,0 +1,17 @@
+﻿
+@section titleContent {
+    Sửa tên danh mục
+}
+
+
+<div>Nhập tên mới cho danh mục có mã << @ViewBag.ID >></div>
+<form method="post" action="">
+    Tên danh mục:
+    <input type="text" name="CatName" />
+    <input type="hidden" value="@ViewBag.ID" name="idToUpdate">
+    <button type="submit">
+        Đồng ý
+    </button>
+</form>
+<a href="@Url.Action("Index", "Category")">Quay lại danh mục</a>
+
