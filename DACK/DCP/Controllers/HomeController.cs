@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DCP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,16 @@ namespace DCP.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+
+        // GET: Home/Top5Hot
+        public ActionResult Top5Hot()
+        {
+            using (var ctx = new QLDGEntities())
+            {
+                return View();
+            }
         }
     }
 }
