@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StringUtils.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>QLDG.tt</DependentUpon>
     </Compile>
@@ -200,6 +201,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDG.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegisterVM.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>QLDG.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,5 +9,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WebDauGiaModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="f_Rate" ColumnName="f_Rate" />
+          <ScalarProperty Name="f_Level" ColumnName="f_Level" />
+          <ScalarProperty Name="f_Address" ColumnName="f_Address" />
+          <ScalarProperty Name="f_Email" ColumnName="f_Email" />
+          <ScalarProperty Name="f_Password" ColumnName="f_Password" />
+          <ScalarProperty Name="f_Username" ColumnName="f_Username" />
+          <ScalarProperty Name="f_DOB" ColumnName="f_DOB" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="f_ID" ColumnName="f_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
