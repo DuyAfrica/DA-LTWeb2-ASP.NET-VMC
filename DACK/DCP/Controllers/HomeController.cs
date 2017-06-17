@@ -19,7 +19,7 @@ namespace DCP.Controllers
         // GET: Home/Top5Hot
         public ActionResult Top5Hot()
         {
-            using (var ctx = new QLDGEntities())
+            using (var ctxx = new QLDGEntities())
             {
                 return View();
             }
