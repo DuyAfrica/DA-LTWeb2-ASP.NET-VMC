@@ -7,7 +7,22 @@
     <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CatName" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="f_ID" />
+    </Key>
+    <Property Name="f_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="f_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="f_DOB" Type="datetime" />
+    <Property Name="f_Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="f_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="f_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="f_Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="f_Level" Type="int" />
+    <Property Name="f_Rate" Type="int" />
+  </EntityType>
   <EntityContainer Name="WebDauGiaModelStoreContainer">
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

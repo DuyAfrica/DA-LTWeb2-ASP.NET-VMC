@@ -7,3 +7,100 @@
     &nbsp;
     Đăng kí thành viên
 }
+
+
+@section css {
+    <style class="type/css">
+
+        label {
+            font-weight: normal !important;
+        }
+
+    </style>    
+}
+
+
+<form class="form-horizontal" method="post" action="">
+    <div class="row">
+        <div class="alert alert-warning alert-dismissible col-sm-offset-4 col-sm-4" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> Nhập sai rồi!
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtUsername" class="col-sm-4 control-label">Tên đăng nhập</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtUsername" placeholder="Tên đăng nhập" name="Username">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="txtPWD" class="col-sm-4 control-label">Mật khẩu</label>
+        <div class="col-sm-4">
+            <input type="password" class="form-control" id="txtPWD" placeholder="Mật khẩu" name="RawPW">
+        </div>
+    </div>    
+
+    <div class="form-group">
+        <label for="txtCPWD" class="col-sm-4 control-label">Nhập lại</label>
+        <div class="col-sm-4">
+            <input type="password" class="form-control" id="txtCPWD" placeholder="Nhập lại mật khẩu">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtName" class="col-sm-4 control-label">Họ tên</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtName" placeholder="Vd: Nguyễn Văn A" name="Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtDOB" class="col-sm-4 control-label">Ngày sinh</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="DOB">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtEmail" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtEmail" placeholder="Vd: abc@gmail.com" name="Email">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="txtAddress" class="col-sm-4 control-label">Địa chỉ</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtAddress" placeholder="Vd: 227 Nguyễn Văn Cừ" name="Address">
+        </div>
+    </div>
+
+
+
+
+    @*<div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-check"></i>
+                Đăng kí
+            </button>
+        </div>
+    </div>
+
+</form>
+
+

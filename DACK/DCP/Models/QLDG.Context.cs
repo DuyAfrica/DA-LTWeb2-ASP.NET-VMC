@@ -26,5 +26,6 @@ namespace DCP.Models
         }
     
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
