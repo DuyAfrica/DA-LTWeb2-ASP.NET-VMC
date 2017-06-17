@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -177,6 +183,10 @@
     <Content Include="assets\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="assets\jquery-3.1.1.min.js" />
+    <Content Include="assets\jquery-validation\additional-methods.js" />
+    <Content Include="assets\jquery-validation\additional-methods.min.js" />
+    <Content Include="assets\jquery-validation\jquery.validate.js" />
+    <Content Include="assets\jquery-validation\jquery.validate.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
