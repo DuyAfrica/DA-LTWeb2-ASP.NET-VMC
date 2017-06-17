@@ -16,9 +16,8 @@
         label {
             font-weight: normal !important;
         }
-
-        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
-    </style>    
+    </style>
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
 }
 
 @section js {
@@ -169,7 +168,7 @@
     <div class="form-group">
         <label for="txtCode" class="col-sm-4 control-label">Captcha</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="txtCode" placeholder="Captcha" name="CaptchaCode">
+            <input type="text" class="form-control" id="txtCode" placeholder="Nhập các kí tự bên dưới" name="CaptchaCode">
         </div>
     </div>
     <div class="form-group">
@@ -180,13 +179,6 @@
             }
             @Html.Captcha(exampleCaptcha)
             
-        </div>
-    </div>
-
-    
-    <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-4">
-            <br />
         </div>
     </div>
     

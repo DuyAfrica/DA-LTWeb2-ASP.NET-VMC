@@ -18,6 +18,34 @@ namespace DCP.Controllers
         }
 
 
+        // POST: Account/Login
+        [HttpPost]
+        public ActionResult Login(LoginVM model)
+        {
+            using (var ctx = new QLDGEntities())
+            {
+                string encPWD = StringUtils.Md5(model.RawPW);
+
+                var user = ctx.Users
+                    .Where(u => u.f_Username == model.Username && u.f_Password == encPWD)
+                    .FirstOrDefault();
+
+                if (user != null)
+                {
+                    Session["isLogin"] = 1;
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.ErrorMsg = "Đăng nhập thất bại.";
+                    return View();
+                }
+            }
+            
+        }
+
+
 
         // GET: Account/Register
         public ActionResult Register()

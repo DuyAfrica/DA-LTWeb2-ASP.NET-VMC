@@ -277,10 +277,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CurrentContext.cs" />
     <Compile Include="Helpers\StringUtils.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>QLDG.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\QLDG.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
