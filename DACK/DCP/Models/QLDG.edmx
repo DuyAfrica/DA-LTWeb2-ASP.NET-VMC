@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebDauGiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebDauGiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CatID" />
@@ -12,25 +12,11 @@
           <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="f_ID" />
-          </Key>
-          <Property Name="f_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="f_Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="f_DOB" Type="datetime" />
-          <Property Name="f_Username" Type="nvarchar" MaxLength="50" />
-          <Property Name="f_Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="f_Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="f_Address" Type="nvarchar" MaxLength="255" />
-          <Property Name="f_Level" Type="int" />
-          <Property Name="f_Rate" Type="int" />
-        </EntityType>
         <EntityContainer Name="WebDauGiaModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebDauGiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -43,22 +29,7 @@
         </EntityType>
         <EntityContainer Name="QLDGEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Users" EntityType="WebDauGiaModel.User" />
         </EntityContainer>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="f_ID" />
-          </Key>
-          <Property Name="f_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="f_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="f_DOB" Type="DateTime" Precision="3" />
-          <Property Name="f_Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="f_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="f_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="f_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="f_Level" Type="Int32" />
-          <Property Name="f_Rate" Type="Int32" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -70,21 +41,6 @@
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="CatID" ColumnName="CatID" />
                 <ScalarProperty Name="CatName" ColumnName="CatName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="WebDauGiaModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="f_Rate" ColumnName="f_Rate" />
-                <ScalarProperty Name="f_Level" ColumnName="f_Level" />
-                <ScalarProperty Name="f_Address" ColumnName="f_Address" />
-                <ScalarProperty Name="f_Email" ColumnName="f_Email" />
-                <ScalarProperty Name="f_Password" ColumnName="f_Password" />
-                <ScalarProperty Name="f_Username" ColumnName="f_Username" />
-                <ScalarProperty Name="f_DOB" ColumnName="f_DOB" />
-                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
-                <ScalarProperty Name="f_ID" ColumnName="f_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
