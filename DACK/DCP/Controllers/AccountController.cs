@@ -33,6 +33,7 @@ namespace DCP.Controllers
                 if (user != null)
                 {
                     Session["isLogin"] = 1;
+                    Session["user"] = user;
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -43,6 +44,15 @@ namespace DCP.Controllers
                 }
             }
             
+        }
+
+
+        // POST: Account/Logout
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            CurrentContext.Destroy();
+            return RedirectToAction("Index", "Home");
         }
 
 
