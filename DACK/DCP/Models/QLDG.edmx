@@ -5,12 +5,43 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="WebDauGiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuctionHistories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PriceBid" Type="money" Nullable="false" />
+          <Property Name="AuctionTime" Type="datetime" Nullable="false" />
+          <Property Name="AuctionStatus" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CatID" />
           </Key>
           <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CatName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProID" />
+          </Key>
+          <Property Name="ProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullDes" Type="ntext" Nullable="false" />
+          <Property Name="PriceStart" Type="money" Nullable="false" />
+          <Property Name="Step" Type="money" Nullable="false" />
+          <Property Name="PriceCur" Type="money" Nullable="false" />
+          <Property Name="PriceBuy" Type="money" />
+          <Property Name="PriceHighest" Type="money" Nullable="false" />
+          <Property Name="Seller" Type="int" Nullable="false" />
+          <Property Name="Buyer" Type="int" Nullable="false" />
+          <Property Name="TimeStart" Type="datetime" Nullable="false" />
+          <Property Name="TimeEnd" Type="datetime" Nullable="false" />
+          <Property Name="ProStatus" Type="bit" Nullable="false" />
+          <Property Name="ProRequired" Type="int" Nullable="false" />
+          <Property Name="CatID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -27,7 +58,9 @@
           <Property Name="f_Rate" Type="int" />
         </EntityType>
         <EntityContainer Name="WebDauGiaModelStoreContainer">
+          <EntitySet Name="AuctionHistories" EntityType="Self.AuctionHistories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -44,6 +77,8 @@
         <EntityContainer Name="QLDGEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Users" EntityType="WebDauGiaModel.User" />
+          <EntitySet Name="AuctionHistories" EntityType="WebDauGiaModel.AuctionHistory" />
+          <EntitySet Name="Products" EntityType="WebDauGiaModel.Product" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -58,6 +93,37 @@
           <Property Name="f_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="f_Level" Type="Int32" />
           <Property Name="f_Rate" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AuctionHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PriceBid" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="AuctionTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuctionStatus" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProID" />
+          </Key>
+          <Property Name="ProID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullDes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceStart" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Step" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PriceCur" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PriceBuy" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PriceHighest" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Seller" Type="Int32" Nullable="false" />
+          <Property Name="Buyer" Type="Int32" Nullable="false" />
+          <Property Name="TimeStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProStatus" Type="Boolean" Nullable="false" />
+          <Property Name="ProRequired" Type="Int32" Nullable="false" />
+          <Property Name="CatID" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -85,6 +151,39 @@
                 <ScalarProperty Name="f_DOB" ColumnName="f_DOB" />
                 <ScalarProperty Name="f_Name" ColumnName="f_Name" />
                 <ScalarProperty Name="f_ID" ColumnName="f_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuctionHistories">
+            <EntityTypeMapping TypeName="WebDauGiaModel.AuctionHistory">
+              <MappingFragment StoreEntitySet="AuctionHistories">
+                <ScalarProperty Name="AuctionStatus" ColumnName="AuctionStatus" />
+                <ScalarProperty Name="AuctionTime" ColumnName="AuctionTime" />
+                <ScalarProperty Name="PriceBid" ColumnName="PriceBid" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProID" ColumnName="ProID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="WebDauGiaModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="CatID" ColumnName="CatID" />
+                <ScalarProperty Name="ProRequired" ColumnName="ProRequired" />
+                <ScalarProperty Name="ProStatus" ColumnName="ProStatus" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Seller" ColumnName="Seller" />
+                <ScalarProperty Name="PriceHighest" ColumnName="PriceHighest" />
+                <ScalarProperty Name="PriceBuy" ColumnName="PriceBuy" />
+                <ScalarProperty Name="PriceCur" ColumnName="PriceCur" />
+                <ScalarProperty Name="Step" ColumnName="Step" />
+                <ScalarProperty Name="PriceStart" ColumnName="PriceStart" />
+                <ScalarProperty Name="FullDes" ColumnName="FullDes" />
+                <ScalarProperty Name="ProName" ColumnName="ProName" />
+                <ScalarProperty Name="ProID" ColumnName="ProID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -10,6 +10,8 @@
   <EntityContainer Name="QLDGEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Users" EntityType="WebDauGiaModel.User" />
+    <EntitySet Name="AuctionHistories" EntityType="WebDauGiaModel.AuctionHistory" />
+    <EntitySet Name="Products" EntityType="WebDauGiaModel.Product" />
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -24,5 +26,36 @@
     <Property Name="f_Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="f_Level" Type="Int32" />
     <Property Name="f_Rate" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AuctionHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="PriceBid" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="AuctionTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuctionStatus" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullDes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PriceStart" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Step" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="PriceCur" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="PriceBuy" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PriceHighest" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Seller" Type="Int32" Nullable="false" />
+    <Property Name="Buyer" Type="Int32" Nullable="false" />
+    <Property Name="TimeStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TimeEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProStatus" Type="Boolean" Nullable="false" />
+    <Property Name="ProRequired" Type="Int32" Nullable="false" />
+    <Property Name="CatID" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

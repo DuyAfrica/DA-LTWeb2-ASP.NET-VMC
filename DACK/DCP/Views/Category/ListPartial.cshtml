@@ -5,5 +5,5 @@
 
 @foreach (var c in Model)
 {
-    <li><a href="#">@c.CatName</a></li>
+    <li><a href="@Url.Action("ByCat", "Product", new { id = c.CatID })">@c.CatName</a></li>
 }

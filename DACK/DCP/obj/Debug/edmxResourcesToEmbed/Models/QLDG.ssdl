@@ -1,11 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="WebDauGiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AuctionHistories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="PriceBid" Type="money" Nullable="false" />
+    <Property Name="AuctionTime" Type="datetime" Nullable="false" />
+    <Property Name="AuctionStatus" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="CatID" />
     </Key>
     <Property Name="CatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CatName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullDes" Type="ntext" Nullable="false" />
+    <Property Name="PriceStart" Type="money" Nullable="false" />
+    <Property Name="Step" Type="money" Nullable="false" />
+    <Property Name="PriceCur" Type="money" Nullable="false" />
+    <Property Name="PriceBuy" Type="money" />
+    <Property Name="PriceHighest" Type="money" Nullable="false" />
+    <Property Name="Seller" Type="int" Nullable="false" />
+    <Property Name="Buyer" Type="int" Nullable="false" />
+    <Property Name="TimeStart" Type="datetime" Nullable="false" />
+    <Property Name="TimeEnd" Type="datetime" Nullable="false" />
+    <Property Name="ProStatus" Type="bit" Nullable="false" />
+    <Property Name="ProRequired" Type="int" Nullable="false" />
+    <Property Name="CatID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -22,7 +53,9 @@
     <Property Name="f_Rate" Type="int" />
   </EntityType>
   <EntityContainer Name="WebDauGiaModelStoreContainer">
+    <EntitySet Name="AuctionHistories" EntityType="Self.AuctionHistories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -17,12 +17,19 @@ namespace DCP.Controllers
 
 
         // GET: Home/Top5Hot
-        public ActionResult Top5Hot()
+        public ActionResult Top5Highest()
         {
             using (var ctx = new QLDGEntities())
             {
-                return View();
+                int records = 5;
+                var list = ctx.Products
+                    .OrderByDescending(p => p.PriceCur)
+                    .Take(records)
+                    .ToList();
+
+                return PartialView("Top5Highest", list);
             }
+            
         }
     }
 }

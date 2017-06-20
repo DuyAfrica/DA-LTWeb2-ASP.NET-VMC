@@ -7,6 +7,8 @@
       <Diagram DiagramId="ffae7c8497bc4d83adbbf18c29398d09" Name="Diagram1">
         <EntityTypeShape EntityType="WebDauGiaModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WebDauGiaModel.User" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WebDauGiaModel.AuctionHistory" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="WebDauGiaModel.Product" Width="1.5" PointX="5.5" PointY="0.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
