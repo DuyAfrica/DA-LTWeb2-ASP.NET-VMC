@@ -1,0 +1,102 @@
+﻿@using DCP.Models
+@model Product
+
+@section titleContent{
+    <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+    &nbsp;
+    &raquo;
+    &nbsp;
+    <a href="@Url.Action("ByCat", "Product", new { id = Model.CatID })">@ViewBag.Cat</a>
+    &nbsp;
+    &raquo;
+    &nbsp;
+    @Model.ProName
+}
+
+@section css {
+    <style type="text/css">
+        .caption-lg-orange {
+            font-weight: bold;
+            font-size: 12pt;
+            color: #fc6e04;
+        }
+
+        .caption-lg-red {
+            font-weight: bold;
+            font-size: 11pt;
+            color: #f00;
+        }
+
+        .padding {
+            padding-top: 8px;
+        }
+    </style>
+}
+
+@if (Model == null)
+{
+    <text> không có sản phẩm!</text>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/Imgs/HinhAnh/@Model.ProID/1.jpg" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/Imgs/HinhAnh/@Model.ProID/2.jpg" />
+        </div>
+        <div class="col-md-4">
+            <img src="~/Imgs/HinhAnh/@Model.ProID/3.jpg" />
+        </div>
+
+
+
+        <div class="col-md-12 caption-lg-orange">
+            <h3>@Model.ProName</h3>
+        </div>
+        <div class="col-md-12 padding">
+            <span class="caption-lg-red">Giá hiện tại: @string.Format("{0:N0}", Model.PriceCur)</span>
+        </div>
+        <div class="col-md-12 padding">
+            <form class="form-inline" method="post" action="">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Bước giá: @string.Format("{0:N0}", Model.Step)</div>
+                            <select class="form-control">
+                                
+                                @for (var i = 1; i < 100; i++)
+                                {
+                                    var Step = i * Model.Step;
+                                    <option>@string.Format("{0:N0}", Step)</option>
+                                }
+                                <input type="hidden" value="@Model.ProID" />
+                                @*<option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>*@
+                            </select>
+                        <div class="input-group-addon">VNĐ</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-check"></i>
+                    Đặt giá
+                </button>
+            </form>
+        </div>
+        <div class="col-md-12 padding">
+            <span class="caption-lg-red">Giá mua ngay: @string.Format("{0:N0}", Model.PriceBuy)</span>
+        </div>
+        <div class="col-md-12 padding">
+            Bắt đầu: @Model.TimeStart
+        </div>
+        <div class="col-md-12 padding">
+            Kết thúc: @Model.TimeEnd
+        </div>
+        <div class="col-md-12 padding">
+            @Html.Raw(Model.FullDes)
+        </div>
+    </div>
+}

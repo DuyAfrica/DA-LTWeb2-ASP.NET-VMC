@@ -23,6 +23,7 @@ namespace DCP.Helpers
             return (User)HttpContext.Current.Session["user"];
         }
 
+        
 
         public static void Destroy()
         {

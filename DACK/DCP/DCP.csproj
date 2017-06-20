@@ -525,6 +525,7 @@
     <Content Include="Views\Admin\Update.cshtml" />
     <Content Include="Views\Home\Top5Highest.cshtml" />
     <Content Include="Views\Product\ByCat.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

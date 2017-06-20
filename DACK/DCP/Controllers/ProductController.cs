@@ -62,5 +62,47 @@ namespace DCP.Controllers
                 return View(list);
             }
         }
+
+
+        // GET: Product/Detail
+        public ActionResult Detail(int? id)
+        {
+            if (id.HasValue == false)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            using (var ctx = new QLDGEntities())
+            {
+
+                // lấy thông tin cho view title
+
+                int CatID = ctx.Products
+                    .Where(p => p.ProID == id)
+                    .FirstOrDefault().CatID;
+
+                string curCat = ctx.Categories
+                    .Where(c => c.CatID == CatID)
+                    .FirstOrDefault().CatName;
+
+                ViewBag.Cat = curCat;
+
+                // lấy thông tin sản phẩm
+
+                var model = ctx.Products
+                    .Where(p => p.ProID == id)
+                    .FirstOrDefault();
+
+                return View(model);
+            }
+        }
+
+
+        // POST: Product/Detail
+        [HttpPost]
+        public ActionResult Detail ()
+        {
+            return View();
+        }
     }
 }

@@ -29,8 +29,8 @@ else
                     <img src="~/Imgs/HinhAnh/@p.ProID/main_thumbs.jpg" title="@p.ProName" />
                     <div class="caption">
                         <h4>@p.ProName</h4>
-                        <h4>Giá: @string.Format("{0:N0}", p.PriceCur)</h4>
-                        
+                        <h4>Giá hiện tại: @string.Format("{0:N0}", p.PriceCur)</h4>
+                        <h4>Mua ngay: @string.Format("{0:N0}", p.PriceBuy)</h4>
                         <p>
                             <a href="@Url.Action("Detail", "Product", new { id = p.ProID })" class="btn btn-info" role="button">
                                 <i class="fa fa-hand-o-right"></i>
