@@ -1,4 +1,5 @@
-﻿using DCP.Models;
+﻿using DCP.Filters;
+using DCP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,7 @@ namespace DCP.Controllers
 
 
         // GET: Product/Detail
+        [CheckLogin]
         public ActionResult Detail(int? id)
         {
             if (id.HasValue == false)
@@ -100,8 +102,36 @@ namespace DCP.Controllers
 
         // POST: Product/Detail
         [HttpPost]
-        public ActionResult Detail (BuyVM model)
+        
+        public ActionResult Detail (BuyVM newmodel)
         {
+            // LƯU ĐẤU GIÁ VÀO CSDL
+
+            AuctionHistory bid = new AuctionHistory
+            {
+                ProID = newmodel.ProID,
+                UserID = newmodel.UserID,
+                PriceBid = newmodel.money,
+                AuctionTime = newmodel.time,
+                AuctionStatus = true
+            };
+
+            // THAY ĐỔI THÔNG SỐ SẢN PHẨM
+
+            using (var ctx = new QLDGEntities())
+            {
+                ctx.AuctionHistories.Add(bid);
+                ctx.SaveChanges();
+
+                Product model = ctx.Products
+                    .Where(p => p.ProID == newmodel.ProID)
+                    .FirstOrDefault();
+                model.PriceHighest = newmodel.money;
+                model.PriceCur = model.PriceCur + model.Step;
+                model.Buyer = newmodel.UserID;
+                ctx.SaveChanges();
+            }
+            ViewBag.SuccessMsg = "Bạn đã đặt giá thành công";
             return View();
         }
     }

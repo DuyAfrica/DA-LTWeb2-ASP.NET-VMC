@@ -8,8 +8,9 @@ namespace DCP.Models
     public class BuyVM
     {
 
-        public string ProID { get; set; }
-        public string UserID { get; set; }
-        public string money { get; set; }
+        public int ProID { get; set; }
+        public int UserID { get; set; }
+        public decimal money { get; set; }
+        public DateTime time { get; set; }
     }
 }

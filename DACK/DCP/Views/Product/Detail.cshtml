@@ -50,7 +50,16 @@ else
             <img src="~/Imgs/HinhAnh/@Model.ProID/3.jpg" />
         </div>
 
-        
+        @if (ViewBag.SuccessMsg != null)
+        {
+            <div class="row">
+                <div class="alert alert-success alert-dismissable col-sm-offset-4 col-sm-4" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Chúc mừng!</strong> @ViewBag.SuccessMsg
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        }
 
         <div class="col-md-12 caption-lg-orange">
             <h3>@Model.ProName</h3>
@@ -59,29 +68,28 @@ else
             <span class="caption-lg-red">Giá hiện tại: @string.Format("{0:N0}", Model.PriceCur)</span>
         </div>
         <div class="col-md-12 padding">
-            <form class="form-inline">
-                
+            <form class="form-inline" method="post" action="">
                 <div class="form-group">
                     <label for="step">Bước giá: @string.Format("{0:N0}", Model.Step)</label>
                     <div class="input-group">
-                        
-                        <select class="form-control" id="step">
-                            
+                        <select class="form-control" id="step" name="money">
                             @for (int i = 1; i < 100; i++)
                             {
-                                var step = i * Model.Step;
-                                @*@string.Format("{0:N0}", step)*@
-                                <option>@step</option>
+                                var step = i * Model.Step + Model.PriceCur;
+                                int price = Convert.ToInt32(step);
+                                <option>@price</option>
                             }
-                            
-                                
-                            @*<option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>*@
                         </select>
-                        
                     </div>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" value="@Model.ProID" name="ProID" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" value="@DCP.Helpers.CurrentContext.GetCurUser().f_ID" name="UserID" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" value="@DateTime.Now" name="time" />
                 </div>
                 <button type="submit" class="btn btn-success">Đặt giá</button>
             </form>
