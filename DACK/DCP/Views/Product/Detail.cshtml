@@ -50,7 +50,7 @@ else
             <img src="~/Imgs/HinhAnh/@Model.ProID/3.jpg" />
         </div>
 
-
+        
 
         <div class="col-md-12 caption-lg-orange">
             <h3>@Model.ProName</h3>
@@ -59,31 +59,31 @@ else
             <span class="caption-lg-red">Giá hiện tại: @string.Format("{0:N0}", Model.PriceCur)</span>
         </div>
         <div class="col-md-12 padding">
-            <form class="form-inline" method="post" action="">
+            <form class="form-inline">
+                
                 <div class="form-group">
+                    <label for="step">Bước giá: @string.Format("{0:N0}", Model.Step)</label>
                     <div class="input-group">
-                        <div class="input-group-addon">Bước giá: @string.Format("{0:N0}", Model.Step)</div>
-                            <select class="form-control">
+                        
+                        <select class="form-control" id="step">
+                            
+                            @for (int i = 1; i < 100; i++)
+                            {
+                                var step = i * Model.Step;
+                                @*@string.Format("{0:N0}", step)*@
+                                <option>@step</option>
+                            }
+                            
                                 
-                                @for (var i = 1; i < 100; i++)
-                                {
-                                    var Step = i * Model.Step;
-                                    <option>@string.Format("{0:N0}", Step)</option>
-                                }
-                                <input type="hidden" value="@Model.ProID" />
-                                @*<option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>*@
-                            </select>
-                        <div class="input-group-addon">VNĐ</div>
+                            @*<option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>*@
+                        </select>
+                        
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-check"></i>
-                    Đặt giá
-                </button>
+                <button type="submit" class="btn btn-success">Đặt giá</button>
             </form>
         </div>
         <div class="col-md-12 padding">

@@ -100,7 +100,7 @@ namespace DCP.Controllers
 
         // POST: Product/Detail
         [HttpPost]
-        public ActionResult Detail ()
+        public ActionResult Detail (BuyVM model)
         {
             return View();
         }

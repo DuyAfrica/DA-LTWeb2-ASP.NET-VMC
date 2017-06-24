@@ -476,9 +476,11 @@
     </Compile>
     <Compile Include="Helpers\CurrentContext.cs" />
     <Compile Include="Helpers\StringUtils.cs" />
+    <Compile Include="Helpers\timeSpan.cs" />
     <Compile Include="Models\AuctionHistory.cs">
       <DependentUpon>QLDG.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BuyVM.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>QLDG.tt</DependentUpon>
     </Compile>
