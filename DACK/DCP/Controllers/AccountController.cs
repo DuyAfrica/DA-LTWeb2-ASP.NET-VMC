@@ -1,4 +1,5 @@
 ﻿using BotDetect.Web.Mvc;
+using DCP.Filters;
 using DCP.Helpers;
 using DCP.Models;
 using System;
@@ -104,5 +105,14 @@ namespace DCP.Controllers
             
             return View();
         }
+
+        // GET: Account/Profile
+
+        [CheckLogin]
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
     }
 }
