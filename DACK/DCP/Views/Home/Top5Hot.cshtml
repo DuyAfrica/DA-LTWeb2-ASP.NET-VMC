@@ -1,0 +1,54 @@
+﻿@using DCP.Helpers
+
+@using DCP.Models
+
+@model List<Product>
+
+@{
+    var ctx = new QLDGEntities();
+    var IDSpRaGiaNhieu = ctx.AuctionHistories
+        .GroupBy(u => u.ProID)
+        .Select(g => new { a = g.Key, c = g.Count() })
+        .OrderByDescending(x => x.c)
+        .Take(5)
+        .ToList();
+}
+
+    <div class="row">
+        @foreach (var a in IDSpRaGiaNhieu)
+        {
+            var SP = ctx.Products
+            .Where(p => p.ProID == a.a)
+            .ToList();
+            
+                foreach (var p in SP)
+                {
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="~/Imgs/HinhAnh/@p.ProID/main_thumbs.jpg" title="@p.ProName" />
+                            <div class="caption">
+                                <h4>@p.ProName</h4>
+                                <h4>Giá hiện tại: @string.Format("{0:N0}", p.PriceCur)</h4>
+                                <h4>Mua ngay: @string.Format("{0:N0}", p.PriceBuy)</h4>
+                                <p>
+                                    <a href="@Url.Action("Detail", "Product", new { id = p.ProID })" class="btn btn-info" role="button">
+                                        <i class="fa fa-hand-o-right"></i>
+                                        Đặt giá
+                                    </a>
+                                </p>
+                                <p style="font-weight: bold; color: red;">
+                                    BID: @a.c
+                                </p>
+                                <p>
+                                    Thời gian còn lại:
+                                    @timeSpan.Time(DateTime.Parse(Convert.ToDateTime(System.DateTime.Now.ToString()).ToString("dd-MM-yyyy HH:mm:ss")), DateTime.Parse(Convert.ToDateTime(p.TimeEnd.ToString()).ToString("dd-MM-yyyy HH:mm:ss"))).Days.ToString() Ngày
+                                    @timeSpan.Time(DateTime.Parse(Convert.ToDateTime(System.DateTime.Now.ToString()).ToString("dd-MM-yyyy HH:mm:ss")), DateTime.Parse(Convert.ToDateTime(p.TimeEnd.ToString()).ToString("dd-MM-yyyy HH:mm:ss"))).Hours.ToString() Giờ
+                                    @timeSpan.Time(DateTime.Parse(Convert.ToDateTime(System.DateTime.Now.ToString()).ToString("dd-MM-yyyy HH:mm:ss")), DateTime.Parse(Convert.ToDateTime(p.TimeEnd.ToString()).ToString("dd-MM-yyyy HH:mm:ss"))).Minutes.ToString() Phút
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+        }
+    </div>

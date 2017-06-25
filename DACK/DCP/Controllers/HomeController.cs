@@ -16,7 +16,7 @@ namespace DCP.Controllers
         }
 
 
-        // GET: Home/Top5Hot
+        // GET: Home/Top5Highest
         public ActionResult Top5Highest()
         {
             using (var ctx = new QLDGEntities())
@@ -31,6 +31,21 @@ namespace DCP.Controllers
                 return PartialView("Top5Highest", list);
             }
             
+        }
+
+        //GET: Home/Top5Hot
+
+        public ActionResult Top5Hot()
+        {
+            using (var ctx = new QLDGEntities())
+            {
+                
+                var list = ctx.Products
+                    .ToList();
+                
+                return PartialView("Top5Hot", list);
+                
+            }
         }
     }
 }

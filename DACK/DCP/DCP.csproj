@@ -532,6 +532,7 @@
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\AuctionHistory\ListPartial.cshtml" />
+    <Content Include="Views\Home\Top5Hot.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
