@@ -23,6 +23,7 @@ namespace DCP.Controllers
             {
                 int records = 5;
                 var list = ctx.Products
+                    .Where(p => p.ProStatus == true)
                     .OrderByDescending(p => p.PriceCur)
                     .Take(records)
                     .ToList();

@@ -53,14 +53,23 @@ else
         @if (ViewBag.SuccessMsg != null)
         {
             <div class="row">
-                <div class="alert alert-success alert-dismissable col-sm-offset-4 col-sm-4" role="alert">
+                <div class="alert alert-success alert-dismissable col-sm-offset-3 col-sm-6" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Chúc mừng!</strong> @ViewBag.SuccessMsg
                 </div>
                 <div class="col-sm-4"></div>
             </div>
         }
-
+        @if (ViewBag.ErrorMsg != null)
+        {
+            <div class="row">
+                <div class="alert alert-warning alert-dismissable col-sm-offset-3 col-sm-6" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Lỗi!</strong> @ViewBag.ErrorMsg
+                </div>
+                <div class="col-sm-4"></div>
+            </div>
+        }
         <div class="col-md-12 caption-lg-orange">
             <h3>@Model.ProName</h3>
         </div>
@@ -105,6 +114,9 @@ else
         </div>
         <div class="col-md-12 padding">
             @Html.Raw(Model.FullDes)
+        </div>
+        <div class="col.md-12 padding">
+            
         </div>
     </div>
 }
