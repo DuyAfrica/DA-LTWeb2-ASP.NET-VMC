@@ -30,6 +30,9 @@
         .padding {
             padding-top: 8px;
         }
+        td {
+            padding: 3px;
+        }
     </style>
 }
 
@@ -57,7 +60,7 @@ else
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Chúc mừng!</strong> @ViewBag.SuccessMsg
                 </div>
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
             </div>
         }
         @if (ViewBag.ErrorMsg != null)
@@ -67,16 +70,16 @@ else
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Lỗi!</strong> @ViewBag.ErrorMsg
                 </div>
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
             </div>
         }
-        <div class="col-md-12 caption-lg-orange">
+        <div class="col-md-8 caption-lg-orange">
             <h3>@Model.ProName</h3>
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             <span class="caption-lg-red">Giá hiện tại: @string.Format("{0:N0}", Model.PriceCur)</span>
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             <form class="form-inline" method="post" action="">
                 <div class="form-group">
                     <label for="step">Bước giá: @string.Format("{0:N0}", Model.Step)</label>
@@ -103,20 +106,20 @@ else
                 <button type="submit" class="btn btn-success">Đặt giá</button>
             </form>
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             <span class="caption-lg-red">Giá mua ngay: @string.Format("{0:N0}", Model.PriceBuy)</span>
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             Bắt đầu: @Model.TimeStart
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             Kết thúc: @Model.TimeEnd
         </div>
-        <div class="col-md-12 padding">
+        <div class="col-md-8 padding">
             @Html.Raw(Model.FullDes)
         </div>
-        <div class="col.md-12 padding">
-            
+        <div class="col-md-4">
+            @Html.Action("List", "AuctionHistory")
         </div>
     </div>
 }

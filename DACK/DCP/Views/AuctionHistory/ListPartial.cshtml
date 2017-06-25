@@ -1,0 +1,19 @@
+﻿@model List<DCP.Models.AuctionHistory>
+
+<table border="1">
+    <tr>
+        <td>Người dùng</td>
+        <td>Giá tiền</td>
+        <td>Thời gian đặt giá</td>
+    </tr>
+
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>@a.UserID</td>
+            <td>@a.PriceBid</td>
+            <td>@a.AuctionTime</td>
+        </tr>
+    }
+</table>
+
