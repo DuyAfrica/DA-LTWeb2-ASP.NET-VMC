@@ -9,6 +9,9 @@ namespace DCP.Filters
 {
     public class CheckLoginAttribute : ActionFilterAttribute
     {
+
+        public int RequiredPermission { get; set; }
+
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (CurrentContext.IsLogged() == false)
@@ -18,6 +21,15 @@ namespace DCP.Filters
 
                 return;
             }
+
+            if (CurrentContext.GetCurUser().f_Level < this.RequiredPermission)
+            {
+                filterContext.Result =
+                    new RedirectResult("~/Error/Index");
+
+                return;
+            }
+
  	        base.OnActionExecuting(filterContext);
         }
     }

@@ -1,4 +1,5 @@
-﻿using DCP.Models;
+﻿using DCP.Filters;
+using DCP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DCP.Controllers
 {
+    [CheckLogin(RequiredPermission = 2)]
     public class AdminController : Controller
     {
         // GET: Admin
