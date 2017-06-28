@@ -37,6 +37,7 @@
     <Property Name="PriceBid" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="AuctionTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="AuctionStatus" Type="Boolean" Nullable="false" />
+    <Property Name="PriceCur" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
   </EntityType>
   <EntityType Name="Product">
     <Key>

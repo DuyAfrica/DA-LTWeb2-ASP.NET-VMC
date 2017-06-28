@@ -8,6 +8,7 @@
     <Property Name="ProID" Type="int" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="PriceBid" Type="money" Nullable="false" />
+    <Property Name="PriceCur" Type="money" Nullable="false" />
     <Property Name="AuctionTime" Type="datetime" Nullable="false" />
     <Property Name="AuctionStatus" Type="bit" Nullable="false" />
   </EntityType>

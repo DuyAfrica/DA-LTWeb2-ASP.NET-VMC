@@ -20,5 +20,6 @@ namespace DCP.Models
         public decimal PriceBid { get; set; }
         public System.DateTime AuctionTime { get; set; }
         public bool AuctionStatus { get; set; }
+        public decimal PriceCur { get; set; }
     }
 }

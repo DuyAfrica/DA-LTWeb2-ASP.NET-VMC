@@ -18,7 +18,9 @@ namespace DCP.Controllers
                 var list = ctx.AuctionHistories
                     .Where(a => a.ProID == id)
                     .ToList();
-
+                var list2 = ctx.Products
+                    .Where(a => a.ProID == id)
+                    .ToList();
                 return PartialView("ListPartial", list);
             }
             

@@ -13,6 +13,7 @@
           <Property Name="ProID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="PriceBid" Type="money" Nullable="false" />
+          <Property Name="PriceCur" Type="money" Nullable="false" />
           <Property Name="AuctionTime" Type="datetime" Nullable="false" />
           <Property Name="AuctionStatus" Type="bit" Nullable="false" />
         </EntityType>
@@ -104,6 +105,7 @@
           <Property Name="PriceBid" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="AuctionTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AuctionStatus" Type="Boolean" Nullable="false" />
+          <Property Name="PriceCur" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -157,6 +159,7 @@
           <EntitySetMapping Name="AuctionHistories">
             <EntityTypeMapping TypeName="WebDauGiaModel.AuctionHistory">
               <MappingFragment StoreEntitySet="AuctionHistories">
+                <ScalarProperty Name="PriceCur" ColumnName="PriceCur" />
                 <ScalarProperty Name="AuctionStatus" ColumnName="AuctionStatus" />
                 <ScalarProperty Name="AuctionTime" ColumnName="AuctionTime" />
                 <ScalarProperty Name="PriceBid" ColumnName="PriceBid" />

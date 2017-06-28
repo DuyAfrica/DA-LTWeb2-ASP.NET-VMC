@@ -1,4 +1,7 @@
-﻿@model List<DCP.Models.AuctionHistory>
+﻿
+
+@model List<DCP.Models.AuctionHistory>
+
 
 <table border="1">
     <tr>
@@ -10,8 +13,8 @@
     @foreach (var a in Model)
     {
         <tr>
-            <td>@a.UserID</td>
-            <td>@string.Format("{0:N0}", a.PriceBid)</td>
+            <td>#@a.UserID</td>
+            <td>@string.Format("{0:N0}", a.PriceCur)</td>
             <td>@a.AuctionTime</td>
         </tr>
     }

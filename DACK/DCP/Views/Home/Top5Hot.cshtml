@@ -13,8 +13,14 @@
         .Take(5)
         .ToList();
 }
-
+@if (IDSpRaGiaNhieu.Count == 0)
+{
+    <text>Không có sản phẩm</text>
+}
+else
+{
     <div class="row">
+        
         @foreach (var a in IDSpRaGiaNhieu)
         {
             var SP = ctx.Products
@@ -52,3 +58,4 @@
                 }
         }
     </div>
+}

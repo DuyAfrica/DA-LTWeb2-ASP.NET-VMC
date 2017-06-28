@@ -27,6 +27,7 @@
     <EntitySetMapping Name="AuctionHistories">
       <EntityTypeMapping TypeName="WebDauGiaModel.AuctionHistory">
         <MappingFragment StoreEntitySet="AuctionHistories">
+          <ScalarProperty Name="PriceCur" ColumnName="PriceCur" />
           <ScalarProperty Name="AuctionStatus" ColumnName="AuctionStatus" />
           <ScalarProperty Name="AuctionTime" ColumnName="AuctionTime" />
           <ScalarProperty Name="PriceBid" ColumnName="PriceBid" />
